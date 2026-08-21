@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Custom Tailwind Colors -->
+    <style type="text/tailwindcss">
+        @theme {
+            --color-primary: #2f6f62;
+            --color-secondary: #0ea5e9;
+            --color-accent: #d9a441;
+            --color-background: #eef2f6;
+            --color-text: #1f2937;
+        }
+    </style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background text-text text-center p-4">
+
+    <!-- Main Container -->
+    <div class="bg-white p-6 max-w-md mx-auto rounded-lg shadow-md">
+
+        <!-- Heading -->
+        <h1 class="text-3xl font-bold mb-2 text-primary">Weather Dashboard</h1>
+        <p class="text-lg mb-6">Check the current weather for any city</p>
+
+        <!-- Search Form -->
+        <form id="weather-form" class="flex gap-2 mb-6">
+            <input
+                type="text"
+                id="city"
+                name="city"
+                placeholder="Enter a city, e.g. Melbourne"
+                required
+                class="flex-1 border-2 border-secondary p-2 rounded"
+            >
+            <button
+                type="submit"
+                class="bg-primary text-white font-bold px-4 py-2 rounded hover:bg-accent"
+            >
+                Search
+            </button>
+        </form>
+
+        <!-- Status message (loading / error) -->
+        <p id="status" class="text-sm text-gray-500 mb-4"></p>
+
+        <!-- Result Card: hidden until a search succeeds -->
+        <div id="result" class="hidden bg-background border-2 border-primary p-6 rounded-lg">
+            <h2 id="location-name" class="text-2xl font-bold mb-1"></h2>
+            <p id="condition" class="text-lg mb-4"></p>
+
+            <div class="text-6xl mb-2" id="icon">☀️</div>
+            <p class="text-4xl font-bold mb-4" id="temperature"></p>
+
+            <div class="grid grid-cols-2 gap-4 text-left">
+                <div class="bg-white p-3 rounded shadow-sm">
+                    <p class="text-xs text-gray-500 font-bold uppercase">Feels like</p>
+                    <p id="feels-like" class="font-bold"></p>
+                </div>
+                <div class="bg-white p-3 rounded shadow-sm">
+                    <p class="text-xs text-gray-500 font-bold uppercase">Wind speed</p>
+                    <p id="wind" class="font-bold"></p>
+                </div>
+                <div class="bg-white p-3 rounded shadow-sm">
+                    <p class="text-xs text-gray-500 font-bold uppercase">Humidity</p>
+                    <p id="humidity" class="font-bold"></p>
+                </div>
+                <div class="bg-white p-3 rounded shadow-sm">
+                    <p class="text-xs text-gray-500 font-bold uppercase">Updated</p>
+                    <p id="updated" class="font-bold"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
